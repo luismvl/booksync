@@ -1,4 +1,4 @@
-# BookSynx — Master Plan
+# BookSync — Master Plan
 
 > Living plan for learning modern Java and building an open-source, cloud-first reading platform with self-hosting and an optional hosted service.
 
@@ -25,7 +25,7 @@ This document is the source of truth for the project until a decision is replace
 
 # 1. Product vision
 
-BookSynx is a personal reading platform where a user uploads their own PDF and EPUB files, reads them on the web or mobile, and keeps the complete reading state synchronized:
+BookSync is a personal reading platform where a user uploads their own PDF and EPUB files, reads them on the web or mobile, and keeps the complete reading state synchronized:
 
 - Book files.
 - Current reading position.
@@ -77,7 +77,7 @@ These may be reconsidered after v1, but they must not expand the initial scope.
 
 The project has two equal goals:
 
-1. Build BookSynx.
+1. Build BookSync.
 2. Relearn Java and become productive with modern Spring Boot.
 
 The learning approach is **vertical and project-driven**, not “finish a Java course and then start the app.” Each project phase introduces only the Java and Spring concepts needed for that phase.
@@ -239,7 +239,7 @@ Initially the same architecture can run on one server:
 Use a monorepo, but start by generating only the backend application.
 
 ```text
-booksynx/
+booksync/
 ├── apps/
 │   ├── api/                 # Java + Spring Boot
 │   ├── web/                 # Next.js
@@ -269,8 +269,8 @@ booksynx/
 Use **package by feature**, not global packages such as `controllers`, `services`, and `repositories`.
 
 ```text
-dev.luismvl.booksynx
-├── BooksynxApplication.java
+dev.luismvl.booksync
+├── BookSyncApplication.java
 ├── auth/
 ├── users/
 ├── devices/
@@ -644,7 +644,7 @@ This gives the reader several ways to recover after a renderer update or minor f
 
 ## 6.6 File identity rule
 
-A locator belongs to a specific file hash. If a user replaces a book file with a different hash, BookSynx must not silently assume all old locators remain correct. The replacement flow must either:
+A locator belongs to a specific file hash. If a user replaces a book file with a different hash, BookSync must not silently assume all old locators remain correct. The replacement flow must either:
 
 - Treat it as a new book.
 - Attempt a migration and show unresolved annotations.
@@ -1514,7 +1514,7 @@ Evaluate:
 - Compatibility with mobile distribution.
 - Whether client SDKs should use a more permissive license.
 - Contributor license agreement versus Developer Certificate of Origin.
-- Trademark policy for the BookSynx name.
+- Trademark policy for the BookSync name.
 
 Do not casually choose MIT merely because it is common. The license should match the hosted-service strategy.
 
@@ -2139,10 +2139,10 @@ Project:        Maven
 Language:       Java
 Spring Boot:    4.1.0
 Group:          dev.luismvl
-Artifact:       booksynx
-Name:           booksynx
+Artifact:       booksync
+Name:           booksync
 Description:    Open-source cross-device reading and synchronization platform
-Package name:   dev.luismvl.booksynx
+Package name:   dev.luismvl.booksync
 Packaging:      Jar
 Configuration:  YAML
 Java:           25
